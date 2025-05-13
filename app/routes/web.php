@@ -14,6 +14,9 @@ Auth::routes();
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/attacker', [App\Http\Controllers\AttackerController::class, 'index'])->name('attacker.index');
+Route::get('/attacker/attackbot', [App\Http\Controllers\AttackBotController::class, 'index'])->name('attacker.attackbot');
+Route::post('/attacker/attackbot/simulate', [App\Http\Controllers\AttackBotController::class, 'simulateVictim'])->name('attackbot.simulate');
+
 
 Route::get('/victim', [App\Http\Controllers\VictimController::class, 'index'])->name('victim.index');
 

@@ -6,9 +6,11 @@ use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
 {
-    /**
-     * Register any application services.
-     */
+     protected $listen = [
+        \App\Events\BotLaunched::class => [
+            \App\Listeners\SimulateVictimListener::class,
+        ],
+    ];
     public function register(): void
     {
         //

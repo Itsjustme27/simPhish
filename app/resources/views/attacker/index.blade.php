@@ -18,7 +18,7 @@
       </div>
       <div class="modal-body">
         <button class="btn btn-outline-success w-100 my-2">Single Player (Be Attacker & Victim)</button>
-        <button class="btn btn-outline-info w-100 my-2">With Bot (Simulated Victim)</button>
+        <a  href="{{ route('attacker.attackbot') }}"class="btn btn-outline-info w-100 my-2">With Bot (Simulated Victim)</a>
       </div>
     </div>
   </div>
