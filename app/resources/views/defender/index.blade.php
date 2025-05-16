@@ -1,58 +1,43 @@
-<!-- resources/views/defender/index.blade.php -->
-
 @extends('layouts.app')
 
 @section('content')
 <div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <h2>Your Inbox</h2>
-            <p>Analyze the emails and mark them as phishing or legitimate.</p>
+    <h2>🛡️ Defender Mode</h2>
 
-            <!-- Inbox List -->
-            <div class="email-inbox">
-                <ul class="list-group">
-                    <li class="list-group-item">
-                        <h5><a href="#" class="email-link">Phishing Attempt: Fake Bank Alert</a></h5>
-                        <p>Suspicious email that appears to be from your bank.</p>
-                        <!-- Buttons to mark email -->
-                        <button class="btn btn-danger" onclick="markPhishing('email-1')">Mark as Phishing</button>
-                        <button class="btn btn-success" onclick="markLegit('email-1')">Mark as Legitimate</button>
-                    </li>
+    <form method="POST" action="{{ route('defender.scan') }}">
+        @csrf
+        <button class="btn btn-outline-primary mb-4">Scan Inbox</button>
+    </form>
 
-                    <li class="list-group-item">
-                        <h5><a href="#" class="email-link">Legit Email: Your Account Update</a></h5>
-                        <p>Important email from your service provider.</p>
-                        <!-- Buttons to mark email -->
-                        <button class="btn btn-danger" onclick="markPhishing('email-2')">Mark as Phishing</button>
-                        <button class="btn btn-success" onclick="markLegit('email-2')">Mark as Legitimate</button>
-                    </li>
+    <h4>Inbox</h4>
+    <ul class="list-group mb-4">
+        @foreach($emails as $email)
+            <li class="list-group-item">
+                <strong>From:</strong> {{ $email->sender }} <br>
+                <strong>Subject:</strong> {{ $email->subject }} <br>
+                <strong>Body:</strong> {{ Str::limit($email->body, 60) }}
+            </li>
+        @endforeach
+    </ul>
 
-                    <!-- Add more emails as necessary -->
-                </ul>
+    @isset($alerts)
+        @if(count($alerts))
+            <div class="alert alert-warning">
+                ⚠️ {{ count($alerts) }} Suspicious Email(s) Found:
             </div>
-
-            <!-- Feedback Section -->
-            <div id="feedback" class="mt-3">
-                <p id="feedback-message"></p>
+            <ul class="list-group">
+                @foreach($alerts as $alert)
+                    <li class="list-group-item">
+                        🚩 <strong>{{ $alert['subject'] }}</strong> from {{ $alert['from'] }} <br>
+                        <span class="text-danger">{{ $alert['reason'] }}</span>
+                    </li>
+                @endforeach
+            </ul>
+        @else
+            <div class="alert alert-success">
+                ✅ Inbox looks safe.
             </div>
-        </div>
-    </div>
+        @endif
+    @endisset
 </div>
-
-<script>
-    function markPhishing(emailId) {
-        // You can make an AJAX call to store the result in your database if needed
-        document.getElementById('feedback-message').innerHTML = "You marked the email as Phishing.";
-        document.getElementById('feedback-message').classList.add('alert', 'alert-danger');
-        // You can perform any other actions like saving the result or providing additional feedback.
-    }
-
-    function markLegit(emailId) {
-        // You can make an AJAX call to store the result in your database if needed
-        document.getElementById('feedback-message').innerHTML = "You marked the email as Legitimate.";
-        document.getElementById('feedback-message').classList.add('alert', 'alert-success');
-        // You can perform any other actions like saving the result or providing additional feedback.
-    }
-</script>
 @endsection
