@@ -8,6 +8,6 @@ use Illuminate\Routing\Controller;
 class VictimController extends Controller
 {
     public function index(){
-        return view('victim.index');
+        return view('victim.index')->with("phishUrl", env("PHISH_URL"));
     }
 }

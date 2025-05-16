@@ -12,6 +12,10 @@
             <form method="POST" action="{{ route('attackbot.simulate') }}">
                 @csrf
                 <div class="form-group mb-3">
+                    <label for="subject">To:</label>
+                    <input type="email" name="email" class="form-control" placeholder="e.g. test@gmail.com" required>
+                </div>
+                <div class="form-group mb-3">
                     <label for="subject">Subject</label>
                     <input type="text" name="subject" class="form-control" placeholder="e.g., Account Verification Required" required>
                 </div>

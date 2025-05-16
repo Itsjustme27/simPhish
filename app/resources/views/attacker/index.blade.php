@@ -17,7 +17,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <button class="btn btn-outline-success w-100 my-2">Single Player (Be Attacker & Victim)</button>
+        <button class="btn btn-outline-success w-100 my-2">Multiplayer</button>
         <a  href="{{ route('attacker.attackbot') }}"class="btn btn-outline-info w-100 my-2">With Bot (Simulated Victim)</a>
       </div>
     </div>

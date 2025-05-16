@@ -54,7 +54,7 @@ class SimulateVictimListener
     if ($event->result['success']) {
         sleep(rand(2,5));
         Http::asForm()->post(env('PHISH_URL'), [
-            'username' => 'victim_bot',
+            'email' => 'victim_bot@gmail.com',
             'password' => 'bot_pass123',
         ]);
 
