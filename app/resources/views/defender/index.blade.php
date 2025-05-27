@@ -11,12 +11,20 @@
 
     <h4>Inbox</h4>
     <ul class="list-group mb-4">
-        @foreach($emails as $email)
-            <li class="list-group-item">
-                <strong>From:</strong> {{ $email->sender }} <br>
-                <strong>Subject:</strong> {{ $email->subject }} <br>
-                <strong>Body:</strong> {{ Str::limit($email->body, 60) }}
-            </li>
+        @foreach($emails as $index => $email)
+        <li class="list-group-item">
+            <strong>From:</strong> {{ $email->sender }} <br>
+            <strong>Subject:</strong> {{ $email->subject }} <br>
+            <strong>Body:</strong> 
+            <span data-bs-toggle="collapse" href="#emailBody{{ $index }}" role="button" aria-expanded="false" aria-controls="emailBody{{ $index }}">
+                {{ Str::limit($email->body, 60) }} <small class="text-primary">(Click to expand)</small>
+            </span>
+            <div class="collapse mt-2" id="emailBody{{ $index }}">
+                <div class="card card-body">
+                    {{ $email->body }}
+                </div>
+            </div>
+        </li>
         @endforeach
     </ul>
 

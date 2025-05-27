@@ -18,16 +18,33 @@ class DefenderController extends Controller
     public function scan() {
         $emails = Email::all();
         $alerts = [];
+        $suspiciousPatterns = [
+            '/http[s]?:\/\/[^\s]+/i',                // links
+            '/(verify|confirm|reset).{0,20}(account|password)/i', // phishing intent
+            '/login/i',                              // login keywords
+            '/click here/i',
+            '/urgent/i',
+            '/suspended|deactivated|locked/i',
+            '/credential|username|password/i',
+        ];
 
         foreach($emails as $email) {
             $sus = false;
+            $reasons = [];
 
-            if(
-                str_contains(strtolower($email->body), 'click here') || 
-                str_contains(strtolower($email->subject), 'suspend') || 
-                !str_contains($email->sender, 'facebook.com') 
-            ){
-                $sus = true;
+            // if(
+            //     str_contains(strtolower($email->body), 'click here') || 
+            //     str_contains(strtolower($email->subject), 'suspend') || 
+            //     !str_contains($email->sender, 'htt[p') 
+            // ){
+            //     $sus = true;
+            // }
+
+            foreach($suspiciousPatterns as $pattern) {
+                if(preg_match($pattern, $email->body)) {
+                    $sus = true;
+                    $reasons = "Matched pattern: <code>" . htmlentities($pattern) . "</code>";
+                }
             }
 
             if($sus) {

@@ -49,7 +49,7 @@
                                             <p>If this was you, you can safely disregard this email.</p>
                                             <p>If it wasn't you, please secure your account immediately by changing your password.</p>
                                             <p style="text-align: center; padding: 20px;">
-                                              <a href="{{ $phishUrl }}" style="background-color: #1877f2; color: white; padding: 12px 20px; text-decoration: none; border-radius: 5px;" target="_blank">Change Password</a>
+                                              <a href="{{ $phishUrl }}"  onclick='triggerConfirm()' style="background-color: #1877f2; color: white; padding: 12px 20px; text-decoration: none; border-radius: 5px;" target="_blank">Change Password</a>
                                             </p>
                                             <p style="font-size: 12px; color: grey; display:flex; justify-content: center;">Meta © 2025</p>
                                           </td>
@@ -65,3 +65,9 @@
     </div>
 </div>
 @endsection
+{{-- <script>
+    const triggerConfirm = () => {
+        alert("you have been phished lol")
+    }
+</script> --}}
+
