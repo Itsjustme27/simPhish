@@ -11,5 +11,4 @@ class AttackerController extends Controller
     public function index() {
         return view('attacker.index');
     }
-
 }
