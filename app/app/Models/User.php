@@ -23,6 +23,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'password_meets_requirements',  // Added for password strength tracking
+        'password_strength_details',    // Added for detailed password analysis
     ];
 
     /**
@@ -45,13 +47,18 @@ class User extends Authenticatable
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
+            'password_meets_requirements' => 'boolean',    // Cast to boolean for easier handling
+            'password_strength_details' => 'array',        // Cast JSON to array automatically
         ];
     }
 
-    protected static function booted(): void {
-    static::created(function (User $user) {
-        $user->assignRole('user');
-    });
-}
-
+    /**
+     * Boot method for automatic role assignment
+     */
+    protected static function booted(): void 
+    {
+        static::created(function (User $user) {
+            $user->assignRole('user');
+        });
+    }
 }

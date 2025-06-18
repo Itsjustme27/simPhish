@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rules\Password;
 
 class RegisterController extends Controller
 {
@@ -51,9 +52,19 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'password' => [
+                'required',
+                'confirmed',
+                Password::min(8)
+                    ->mixedCase()
+                    ->letters()
+                    ->numbers()
+                    ->symbols()
+                    ->uncompromised(), // Checks against known data breaches
+            ],
         ]);
     }
+
 
     /**
      * Create a new user instance after a valid registration.
@@ -61,12 +72,42 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\Models\User
      */
+    /**
+     * Enhanced user creation with password strength tracking
+     */
+
     protected function create(array $data)
     {
-        return User::create([
+        $passwordStrength = $this->evaluatePasswordStrength($data['password']);
+        // dd($passwordStrength);
+        $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'password_meets_requirements' => $passwordStrength['meets_requirements'],
+            'password_strength_details' => json_encode($passwordStrength['details']),
         ]);
+
+        $user->assignRole('user');
+        return $user;
     }
+
+    private function evaluatePasswordStrength($password)
+    {
+        $requirements = [
+            'min_length' => strlen($password) >= 8,
+            'has_uppercase' => preg_match('/[A-Z]/', $password),
+            'has_lowercase' => preg_match('/[a-z]/', $password),
+            'has_numbers' => preg_match('/[0-9]/', $password),
+            'has_symbols' => preg_match('/[^A-Za-z0-9]/', $password),
+        ];
+
+        $meetsRequirements = array_sum($requirements) === count($requirements);
+
+        return [
+            'meets_requirements' => $meetsRequirements,
+            'details' => $requirements
+        ];
+    }
+
 }
