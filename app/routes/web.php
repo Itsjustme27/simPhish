@@ -43,7 +43,5 @@ Route::group(['middleware' => ['auth', 'role:user']], function() {
 
 // Admin routes - protected by admin role
 Route::group(['middleware' => ['auth', 'role:admin']], function() {
-    Route::get('/admin/dashboard', function () {
-        return view('admin.dashboard');
-    })->name('admin.dashboard');
+    Route::get('/admin/dashboard', [App\Http\Controllers\Admin\AdminController::class, 'dashboard'])->name('admin.dashboard');
 });
