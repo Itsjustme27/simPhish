@@ -21,4 +21,20 @@ class AdminController extends Controller
 
         return view('admin.dashboard', compact('stats'));
     }
+
+    public function deleteUser($id) {
+        $user = User::findOrFail($id);
+
+        // Prevent deletion of admin users
+        if($user->hasRole('admin')) {
+            return redirect()->route('admin.dashboard')
+                ->with('error', 'Cannot delete admin users');
+        }
+
+        $userName = $user->name;
+        $user->delete();
+
+        return redirect()->route('admin.dashboard')
+            ->with('success', "Successfully deleted user: {$userName}");
+    }
 }

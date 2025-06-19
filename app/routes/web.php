@@ -44,4 +44,8 @@ Route::group(['middleware' => ['auth', 'role:user']], function() {
 // Admin routes - protected by admin role
 Route::group(['middleware' => ['auth', 'role:admin']], function() {
     Route::get('/admin/dashboard', [App\Http\Controllers\Admin\AdminController::class, 'dashboard'])->name('admin.dashboard');
+
+    // User deletion route
+    Route::delete('/admin/users/{id}', [App\Http\Controllers\Admin\AdminController::class, 'deleteUser'])
+        ->name('admin.users.delete');
 });
