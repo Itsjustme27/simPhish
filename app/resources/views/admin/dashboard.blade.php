@@ -6,7 +6,7 @@
             <div class="col-md-12">
                 <!-- Header Section -->
                 <div class="d-flex justify-content-between align-items-center mb-4">
-                    <h1 class="h3 mb-0 text-dark-800 ">Admin Dashboard</h1>
+                    <h1 class="h3 mb-0 text-dark-800" >Admin Dashboard</h1>
                 </div>
 
                 <!-- Statistics Cards -->
@@ -123,11 +123,11 @@
 
                     <!-- Add this card to your admin dashboard -->
                     <div class="col-xl-3 col-md-6 mb-4">
-                        <div class="card border-left-danger shadow h-50 py-2">
+                        <div class="card border-left-warning shadow h-50 py-2">
                             <div class="card-body">
                                 <div class="row no-gutters align-items-center">
                                     <div class="col mr-2">
-                                        <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">
+                                        <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
                                             <b>Weak Passwords</b>
                                         </div>
                                         <div class="h5 mb-0 font-weight-bold ">
