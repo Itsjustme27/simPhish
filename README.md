@@ -1,4 +1,10 @@
+<<<<<<< HEAD
 ## 📧 Phishy - Advanced Phishing Simulation Platform
+=======
+📧 Phishy - Advanced Phishing Simulation Platform
+
+ **Phishy** is an innovative cybersecurity education platform that revolutionizes phishing awareness training through multi-perspective learning. Built with Laravel 11, it provides a comprehensive ecosystem where users experience cybersecurity from three critical viewpoints: Attacker, Victim, and Defender.
+>>>>>>> cac4d40 (Final UI)
 
 **Phishy** is an innovative cybersecurity education platform that revolutionizes phishing awareness training through multi-perspective learning. Built with Laravel 11, it provides a comprehensive ecosystem where users experience cybersecurity from three critical viewpoints: Attacker, Victim, and Defender.
 
