@@ -1,10 +1,4 @@
-<<<<<<< HEAD
 ## 📧 Phishy - Advanced Phishing Simulation Platform
-=======
-📧 Phishy - Advanced Phishing Simulation Platform
-
- **Phishy** is an innovative cybersecurity education platform that revolutionizes phishing awareness training through multi-perspective learning. Built with Laravel 11, it provides a comprehensive ecosystem where users experience cybersecurity from three critical viewpoints: Attacker, Victim, and Defender.
->>>>>>> cac4d40 (Final UI)
 
 **Phishy** is an innovative cybersecurity education platform that revolutionizes phishing awareness training through multi-perspective learning. Built with Laravel 11, it provides a comprehensive ecosystem where users experience cybersecurity from three critical viewpoints: Attacker, Victim, and Defender.
 
@@ -49,23 +43,43 @@
 
 ### 📸 Screenshots:
 
-- Main Dashboard:
-![Dashboard Screenshot](https://via.placeholder.com/800x500/f8f9fa/6c757d?text=Dashboard+Screenshot*
+- Login Page:
 
-- Admin Panel:
-![Admin Panel Screenshot](https://via.placeholder.com/800x500/e74a3b/ffffff?text=Admin+d security metrics*
+![[Screenshot_2025-06-22_13-00-40.png]]
 
--Attacker Mode
-![Attacker Mode Screenshot](https://via.placeholder.com/800x500/dc3545/ffffff?text=Attacker+Mode+Screenshot+ interaction and probability scoring*
+
+- Sign up Page:
+
+![[Screenshot_2025-06-22_13-01-22.png]]
+
+- User Dashboard:
+
+![[Screenshot_2025-06-22_12-55-48.png]]
+
+- Admin Dashboard:
+
+![[Screenshot_2025-06-22_12-56-53.png]]
+
+![[Screenshot_2025-06-22_12-56-58.png]]
+
+- Attacker Mode:
+
+![[Screenshot_2025-06-22_12-58-01.png]]
+
+![[Screenshot_2025-06-22_12-58-32.png]]
 
 - Victim Mode:
-![Victim Mode Screenshot](https:// experience with educational feedback*
+
+
 
 - Defender Mode:
-![Defender Mode Screenshot](https://via.placeholder.com/800x500/007bff/ffffff?text=Defender recognition*
+![[Screenshot_2025-06-22_12-58-57.png]]
 
-- Dark Mode Support
-![Dark Mode Screenshot](https://via.placeholder.com/800x500/343a40/ffffff?text=Dark+Mode dark theme across all interfaces*
+![[Screenshot_2025-06-22_12-59-22.png]]
+
+
+![[Screenshot_2025-06-22_12-59-42.png]]
+
 
 🚀 Installation:
 
