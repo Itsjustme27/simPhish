@@ -1,5 +1,5 @@
 📧 Phishy - Advanced Phishing Simulation Platform
-![Phishy Bannerttps://img.shieldss://tps://img.shields.io/badgehy** is an innovative cybersecurity education platform that revolutionizes phishing awareness training through multi-perspective learning. Built with Laravel 11, it provides a comprehensive ecosystem where users experience cybersecurity from three critical viewpoints: Attacker, Victim, and Defender.
+![Phishy Banner](https://via.placeholder.com/800x200/4e73df/ffffff?text=Phishy+-+Cybersecurity+Trainingshields.io/badge/Laravel-11.x-red.rap](https://img.shields.io/badge/Bootstrap-5.3-purple.svg** is an innovative cybersecurity education platform that revolutionizes phishing awareness training through multi-perspective learning. Built with Laravel 11, it provides a comprehensive ecosystem where users experience cybersecurity from three critical viewpoints: Attacker, Victim, and Defender.
 
 🌟 Key Features
 🎭 Multi-Perspective Learning System
@@ -35,23 +35,23 @@ Role assignment and permission management
 Responsive design with Bootstrap 5.3
 
 📸 Screenshots
-Dashboard Overview
-![Main Dashboard](screenshots/dashboar three-module learning approach*
+Main Dashboard
+![Dashboard Overview](https://via.placeholder.com/800x500/f8f9fa/6c757d?text=Main+Dashboard+ module selection*
 
 Admin Panel
-Comprehensive admin dashboard with user management and security metrics
+![Admin Dashboard](https://via.placeholder.com/800x500/4e73df/ffffff dashboard with user management and security metrics*
 
 Attacker Mode
-![Attacker Interface](screenshots/attackernteraction*
+![Attacker Interface](https://via.placeholder.com/800x500/dc3545/ffffff? interaction and probability scoring*
 
 Victim Mode
-![Victim Experienceg email experience with educational feedback*
+![Victim Experience](https://via.placeholder.com/800x500/ffc107/000000?text=Victim+Mode experience with educational feedback*
 
 Defender Mode
-![Defender Analysisd threat detection interface*
+![Defender Interface](https://via.placeholder.com/800x500/28a745/ffffff?text= and threat detection interface with pattern recognition*
 
 Dark Mode Support
-Professional dark theme across all interfaces
+![Dark Theme](https://via.placeholder.com/800x500/2c3034/ffffff?text= dark theme across all interfaces*
 
 🚀 Installation
 Prerequisites
@@ -109,10 +109,25 @@ Core Components
 text
 Phishy/
 ├── 🎭 Attacker Module     # Social engineering simulation
-├── 👤 Victim Module       # Phishing experience training  
+│   ├── Email crafting interface
+│   ├── Bot simulation system
+│   └── Probability-based scoring
+├── 👤 Victim Module       # Phishing experience training
+│   ├── Realistic email inbox
+│   ├── Fake login pages
+│   └── Educational feedback
 ├── 🛡️ Defender Module     # Threat detection & analysis
+│   ├── Email pattern recognition
+│   ├── Suspicious content scanner
+│   └── Security analysis tools
 ├── 👑 Admin Dashboard     # User & security management
+│   ├── User management system
+│   ├── Password compliance tracking
+│   └── Real-time statistics
 └── 🔐 RBAC System        # Role-based access control
+    ├── User roles (admin/user)
+    ├── Permission management
+    └── Secure authentication
 Technical Stack
 Backend: Laravel 11 with PHP 8.4+
 
@@ -125,6 +140,10 @@ Authentication: Laravel Breeze with custom enhancements
 Permissions: Spatie Laravel Permission
 
 Assets: Vite for modern asset compilation
+
+UI Framework: Bootstrap 5.3 with custom SCSS
+
+Icons: Font Awesome 6.0
 
 📚 Usage Guide
 For Students/Trainees
@@ -149,12 +168,36 @@ Manage user roles and permissions
 
 Track learning progress across all modules
 
+🔧 Configuration
+Environment Variables
+text
+# Application
+APP_NAME="Phishy"
+APP_ENV=production
+APP_DEBUG=false
+APP_URL=http://localhost
+
+# Database
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=phishy
+DB_USERNAME=your_username
+DB_PASSWORD=your_password
+
+# Phishing URL (for victim module)
+PHISH_URL=http://localhost:8000/phish-target
+
+# Mail Configuration (for notifications)
+MAIL_MAILER=smtp
+MAIL_HOST=mailhog
+MAIL_PORT=1025
 Default Users
 After seeding, you can login with:
 
 Admin: admin@phishy.com / AdminPhishy2025!Sec#
 
-User: Create via registration with strong password
+User: Create via registration with strong password requirements
 
 🎯 Educational Objectives
 Learning Outcomes
@@ -182,22 +225,73 @@ Key Features Implementation
 Password Strength Tracking
 php
 // Real-time password compliance monitoring
-'password_meets_requirements' => $passwordStrength['meets_requirements'],
-'password_strength_details' => json_encode($passwordStrength['details']),
+protected function create(array $data)
+{
+    $passwordStrength = $this->evaluatePasswordStrength($data['password']);
+    
+    $user = User::create([
+        'name' => $data['name'],
+        'email' => $data['email'],
+        'password' => Hash::make($data['password']),
+        'password_meets_requirements' => $passwordStrength['meets_requirements'],
+        'password_strength_details' => json_encode($passwordStrength['details']),
+    ]);
+    
+    $user->assignRole('user');
+    return $user;
+}
 Event-Driven Bot Simulation
 php
 // Probability-based victim simulation
-$event = new BotLaunched($message, $subject);
-event($event);
-$result = $event->result; // Realistic success/failure scoring
+public function simulateVictim(Request $request)
+{
+    $event = new BotLaunched($request->input('message'), $request->input('subject'));
+    event($event);
+    
+    $result = $event->result; // Realistic success/failure scoring
+    
+    $status = $result['success']
+        ? "✅ Success! Victim bot fell for it (Score: {$result['score']})"
+        : "❌ Fail! Victim bot ignored the email (Score: {$result['score']})";
+        
+    return back()->with('status', $status);
+}
 Advanced Threat Detection
 php
 // Pattern-based email analysis
 $suspiciousPatterns = [
-    '/http[s]?:\/\/[^\s]+/i',                // Links
+    '/http[s]?:\/\/[^\s]+/i',                // Links detection
     '/(verify|confirm|reset).{0,20}(account|password)/i', // Phishing intent
-    '/urgent|suspended|locked/i',            // Social engineering
+    '/login/i',                              // Login keywords
+    '/urgent|suspended|locked/i',            // Social engineering tactics
+    '/credential|username|password/i',       // Credential harvesting
 ];
+
+foreach($suspiciousPatterns as $pattern) {
+    if(preg_match($pattern, $email->body)) {
+        $alerts[] = [
+            'id' => $email->id,
+            'from' => $email->sender,
+            'subject' => $email->subject,
+            'reason' => 'Suspicious content detected: ' . $pattern,
+        ];
+    }
+}
+Database Schema
+Users Table Enhancement
+sql
+ALTER TABLE users ADD COLUMN password_meets_requirements BOOLEAN DEFAULT FALSE;
+ALTER TABLE users ADD COLUMN password_strength_details JSON;
+Emails Table
+sql
+CREATE TABLE emails (
+    id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    sender VARCHAR(255) NOT NULL,
+    subject VARCHAR(255) NOT NULL,
+    body TEXT NOT NULL,
+    created_at TIMESTAMP NULL DEFAULT NULL,
+    updated_at TIMESTAMP NULL DEFAULT NULL
+);
 Contributing
 Fork the repository
 
@@ -212,7 +306,7 @@ Open a Pull Request
 📈 Future Enhancements
  Multiplayer Mode - Real-time competitive phishing simulations
 
- Advanced Analytics - Detailed learning progress tracking
+ Advanced Analytics - Detailed learning progress tracking with charts
 
  API Integration - RESTful API for external integrations
 
@@ -221,6 +315,10 @@ Open a Pull Request
  AI-Powered Scenarios - Dynamic phishing content generation
 
  Certification System - Formal cybersecurity awareness certificates
+
+ Multi-language Support - Internationalization for global use
+
+ Advanced Reporting - Detailed security posture reports
 
 🏆 Recognition
 This project demonstrates:
@@ -244,6 +342,36 @@ Network security expertise using tools like nc and advanced networking
 
 Real-world security administration experience
 
+Reverse engineering skills and vulnerability assessment
+
+🔒 Security Features
+Authentication & Authorization
+Strong password enforcement with real-time validation
+
+Role-based access control using Spatie Permission
+
+Session management with secure cookie handling
+
+CSRF protection on all forms
+
+Data Protection
+Input validation and sanitization
+
+SQL injection prevention through Eloquent ORM
+
+XSS protection with proper output escaping
+
+Secure password hashing using bcrypt
+
+📊 Performance
+Optimized database queries with eager loading
+
+Asset compilation with Vite for fast loading
+
+Responsive design for all device types
+
+Caching strategies for improved performance
+
 📄 License
 This project is licensed under the MIT License - see the LICENSE file for details.
 
@@ -258,4 +386,18 @@ CTF Community for inspiration and security best practices
 
 Cybersecurity Community for educational methodologies
 
+📞 Contact
+Project Maintainer: Your Name
+Email: your.email@example.com
+LinkedIn: Your LinkedIn Profile
+GitHub: Your GitHub Profile
+Project Link: https://github.com/yourusername/phishy
 
+🌟 Star History
+[![Star History Chart](https://api.star-history.com/svg?repos=yourusername/ph-history.com/#yourusername/ph
+
+⭐ Star this repository if you found it helpful!
+
+Made with ❤️ for cybersecurity education
+
+"Learning security through experience, not just theory"
