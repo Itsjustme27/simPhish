@@ -1,8 +1,10 @@
 ## 📧 Phishy - Advanced Phishing Simulation Platform
+
 **Phishy** is an innovative cybersecurity education platform that revolutionizes phishing awareness training through multi-perspective learning. Built with Laravel 11, it provides a comprehensive ecosystem where users experience cybersecurity from three critical viewpoints: Attacker, Victim, and Defender.
 
-🌟 Key Features
-🎭 Multi-Perspective Learning System
+## 🌟 Key Features
+
+### 🎭 Multi-Perspective Learning System
 
 - Attacker Mode: Learn social engineering tactics and email crafting techniques
 
@@ -10,7 +12,7 @@
 
 - Defender Mode: Develop threat detection and email analysis skills
 
-🔐 Advanced Security Features:
+### 🔐 Advanced Security Features:
 
 - Role-Based Access Control (RBAC) with Spatie Laravel Permission
 
@@ -21,7 +23,7 @@
 - Dark/Light Mode Support for enhanced user experience
 
 
-🤖 Intelligent Bot Simulation:
+### 🤖 Intelligent Bot Simulation:
 
 - Probability-based victim responses with realistic scoring algorithms
 
@@ -39,7 +41,7 @@
 
 - Responsive design with Bootstrap 5.3
 
-📸 Screenshots:
+### 📸 Screenshots:
 
 - Main Dashboard:
 ![Dashboard Screenshot](https://via.placeholder.com/800x500/f8f9fa/6c757d?text=Dashboard+Screenshot*
@@ -149,7 +151,7 @@ Phishy/
     └── Secure authentication
 ```
 
-- Technical Stack:
+### Technical Stack:
   
 Component	Technology:
 
@@ -161,8 +163,9 @@ Component	Technology:
 - Assets : Vite for modern asset compilation
 - UI Framework : Bootstrap 5.3 with custom SCSS
 - Icons : Font Awesome 6.0
-  
-📚 Usage Guide:
+
+
+### 📚 Usage Guide:
 
 - For Students/Trainees
     -Register with a strong password (enforced by our security system)
@@ -188,7 +191,7 @@ Component	Technology:
     - Track learning progress across all modules
 
 
-🎯 Educational Objectives:
+### 🎯 Educational Objectives:
 
 1) Learning Outcomes:
 
@@ -211,7 +214,7 @@ Component	Technology:
 
 🏛️ Organizations implementing security education programs
 
-🛠️ Development
+### 🛠️ Development
 - Key Features Implementation
 - Password Strength Tracking
 
@@ -287,7 +290,7 @@ CREATE TABLE emails (
 );
 ```
 
-- Contributing:
+### Contributing:
   
 1) Fork the repository
 
@@ -299,7 +302,7 @@ CREATE TABLE emails (
 
 5) Open a Pull Request
 
-📈 Future Enhancements:
+### 📈 Future Enhancements:
  
  - Multiplayer Mode - Real-time competitive phishing simulations
 
@@ -317,7 +320,7 @@ CREATE TABLE emails (
 
  - Advanced Reporting - Detailed security posture reports
 
-🏆 Recognition:
+### 🏆 Recognition:
 
 This project demonstrates:
 
@@ -329,51 +332,25 @@ This project demonstrates:
 
 🔒 Security-first mindset with comprehensive protection measures
 
-🎖️ CTF & Security Background
-Built by a cybersecurity enthusiast with:
 
-🏆 CTF Competition Experience - Currently ranked 5th in Nepal on CTFTIME
+### 🔒 Security Features
 
-🔍 Specialization in 'misc' category challenges
+- 🔐 Strong password enforcement with real-time validation
 
-🌐 Network security expertise using tools like nc and advanced networking
+- 👥 Role-based access control using Spatie Permission
 
-🛡️ Real-world security administration experience
+- 🍪 Session management with secure cookie handling
 
-🔧 Reverse engineering skills and vulnerability assessment
+- 🛡️ CSRF protection on all forms
 
-🔒 Security Features
-Authentication & Authorization
-🔐 Strong password enforcement with real-time validation
 
-👥 Role-based access control using Spatie Permission
-
-🍪 Session management with secure cookie handling
-
-🛡️ CSRF protection on all forms
-
-Data Protection
-✅ Input validation and sanitization
-
-🚫 SQL injection prevention through Eloquent ORM
-
-🔒 XSS protection with proper output escaping
-
-🔑 Secure password hashing using bcrypt
-
-📊 Performance
-⚡ Optimized database queries with eager loading
-
-🚀 Asset compilation with Vite for fast loading
-
-📱 Responsive design for all device types
 
 💾 Caching strategies for improved performance
 
-📄 License
+### 📄 License
 This project is licensed under the MIT License - see the LICENSE file for details.
 
-🤝 Acknowledgments:
+### 🤝 Acknowledgments:
 
 - Laravel Community for the excellent framework and documentation
 
