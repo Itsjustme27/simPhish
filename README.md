@@ -43,43 +43,48 @@
 
 ### 📸 Screenshots:
 
-- Login Page:
+- **Login Page:**
 
-![[Screenshot_2025-06-22_13-00-40.png]]
+![Screenshot](Screenshot_2025-06-22_13-00-40.png)
 
+- **Sign up Page:**
 
-- Sign up Page:
+![Screenshot](Screenshot_2025-06-22_13-01-22.png)
 
 ![[Screenshot_2025-06-22_13-01-22.png]]
 
-- User Dashboard:
+- **User Dashboard:**
+  
+![Screenshot](Screenshot_2025-06-22_12-55-48.png)
 
 ![[Screenshot_2025-06-22_12-55-48.png]]
 
-- Admin Dashboard:
+- **Admin Dashboard:**
 
-![[Screenshot_2025-06-22_12-56-53.png]]
+![Screenshot](Screenshot_2025-06-22_12-56-53.png)
 
-![[Screenshot_2025-06-22_12-56-58.png]]
+![Screenshot](Screenshot_2025-06-22_12-56-58.png)
 
-- Attacker Mode:
 
-![[Screenshot_2025-06-22_12-58-01.png]]
+- **Attacker Mode:**
+  
+![Screenshot](Screenshot_2025-06-22_12-58-01.png)
 
-![[Screenshot_2025-06-22_12-58-32.png]]
+![Screenshot](Screenshot_2025-06-22_12-58-32.png)
 
-- Victim Mode:
 
+- **Victim Mode:**
+
+![Screenshot](Screenshot_2025-06-22_12-58-57.png)
+
+![Screenshot](Screenshot_2025-06-22_12-59-22.png)
+
+![Screenshot](Screenshot_2025-06-22_12-59-42.png)
 
 
 - Defender Mode:
-![[Screenshot_2025-06-22_12-58-57.png]]
-
-![[Screenshot_2025-06-22_12-59-22.png]]
-
-
-![[Screenshot_2025-06-22_12-59-42.png]]
-
+  
+![Screenshot](Screenshot_2025-06-22_13-10-48.png)
 
 🚀 Installation:
 
