@@ -57,7 +57,6 @@
   
 ![Screenshot](Screenshot_2025-06-22_12-55-48.png)
 
-![[Screenshot_2025-06-22_12-55-48.png]]
 
 - **Admin Dashboard:**
 
@@ -82,7 +81,7 @@
 ![Screenshot](Screenshot_2025-06-22_12-59-42.png)
 
 
-- Defender Mode:
+- **Defender Mode**:
   
 ![Screenshot](Screenshot_2025-06-22_13-10-48.png)
 
@@ -126,7 +125,7 @@ Database setup
 # Configure your database in .env file
 php artisan migrate
 php artisan db:seed
-
+```
 
 
 Install Spatie Permission
